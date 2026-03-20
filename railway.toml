@@ -1,0 +1,12 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "uvicorn api.main:app --host 0.0.0.0 --port $PORT"
+```
+
+**Step 5** — Click **"Commit changes"**
+
+**Step 6** — Go back to Railway — it will automatically detect the new commit and redeploy. Watch the logs and you should see:
+```
+Uvicorn running on http://0.0.0.0:XXXXX
