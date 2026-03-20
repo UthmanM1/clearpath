@@ -2,22 +2,4 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "uvicorn api.main:app --host 0.0.0.0 --port $PORT"
-healthcheckPath = "/health"
-```
-
----
-
-**Also update `requirements.txt`** — click the file in GitHub, hit the pencil edit icon, and make sure it contains:
-```
-fastapi==0.115.0
-uvicorn==0.30.0
-httpx==0.27.0
-python-dotenv==1.0.0
-```
-
----
-
-After committing all three, Railway will redeploy. Watch for this in the logs:
-```
-Uvicorn running on http://0.0.0.0:XXXX
+startCommand = "python -m uvicorn api.main:app --host 0.0.0.0 --port $PORT"
