@@ -3,10 +3,21 @@ builder = "nixpacks"
 
 [deploy]
 startCommand = "uvicorn api.main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/health"
 ```
 
-**Step 5** — Click **"Commit changes"**
+---
 
-**Step 6** — Go back to Railway — it will automatically detect the new commit and redeploy. Watch the logs and you should see:
+**Also update `requirements.txt`** — click the file in GitHub, hit the pencil edit icon, and make sure it contains:
 ```
-Uvicorn running on http://0.0.0.0:XXXXX
+fastapi==0.115.0
+uvicorn==0.30.0
+httpx==0.27.0
+python-dotenv==1.0.0
+```
+
+---
+
+After committing all three, Railway will redeploy. Watch for this in the logs:
+```
+Uvicorn running on http://0.0.0.0:XXXX
